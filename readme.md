@@ -1,5 +1,6 @@
 # Machine-actionable data descriptions for Austria's digital landscape model
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.7935104.svg)](https://doi.org/10.5281/zenodo.7935104)
 
 The digital landscape model (DLM) is a compilation of several data sets that, among other things, form the data basis for official maps. It covers a variety of the 34 themes of the EU directive INSPIRE. The introduction of these themes enriched the metadata and made similar datasets easier to find. Unfortunately, the competent authority (BEV) only provides the associated data descriptions as a PDF export of an Excel spreadsheet without translations.
 
@@ -42,3 +43,5 @@ Do not execute `04validate.js` without downloading the gpkg files first. The lin
 ## Step 5 (optional)
 
 `05stats.js` creates some basic statistics and stores them in a csv file. This is used to generate diagrams in an external program.
+
+dlmdesc
