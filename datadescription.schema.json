@@ -1,0 +1,125 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/jogemu/dlmdesc/datadescription.schema.json",
+  "title": "DLM data description",
+  "description": "Machine-actionable data description for Austria's digital landscape model",
+  "type": "object",
+  "properties": {
+    "title": {
+      "description": "The title of the associated DOI.",
+      "type": "string"
+    },
+    "theme": {
+      "description": "A link to the associated INSPIRE theme.",
+      "type": "uri"
+    },
+    "annex": {
+      "description": "The themes are categorized in Annex I, II and III.",
+      "type": "string"
+    },
+    "layers": {
+      "description": "The layers that are part of the associated geopackage.",
+      "type": "array",
+      "items": {
+        "description": "A layer stored in a table of the geopackage.",
+        "type": "object",
+        "properties": {
+          "layer": {
+            "description": "The name of the layer/table.",
+            "type": "string"
+          },
+          "version": {
+            "description": "The date specified in the data description.",
+            "type": "date"
+          },
+          "datatype": {
+            "description": "The geometry type this layer stores.",
+            "type": "string"
+          },
+          "columns": {
+            "description": "Multiple columns explaining what values they support",
+            "type": "array",
+            "items": {
+              "description": "A column in the associated layer.",
+              "type": "object",
+              "properties": {
+                "column": {
+                  "description": "The name of the column.",
+                  "type": "string"
+                },
+                "description": {
+                  "description": "Describes what this column represents",
+                  "type": "string"
+                },
+                "datatype": {
+                  "description": "The data type this column stores.",
+                  "type": "string"
+                },
+                "values": {
+                  "description": "A list of possible values with description.",
+                  "type": "array",
+                  "items": {
+                    "description": "A value description pair",
+                    "type": "object",
+                    "properties": {
+                      "value": {
+                        "description": "One of multiple possible values for that column.",
+                        "type": "string"
+                      },
+                      "description": {
+                        "description": "The description what that value means.",
+                        "type": "string"
+                      }
+                    }
+                  }
+                },
+                "rules": {
+                  "description": "A list of rules that defines what features can have a given value.",
+                  "type": "array",
+                  "items": {
+                    "description": "A list of features that are all allowed to pick from a list of values.",
+                    "type": "object",
+                    "properties": {
+                      "features": {
+                        "description": "A list of features that are part of this rules.",
+                        "type": "array",
+                        "items": {
+                          "description": "A feature that is part of this rule.",
+                          "type": "string"
+                        }
+                      },
+                      "values": {
+                        "description": "A list of values that this rule allows.",
+                        "type": "array",
+                        "items": {
+                          "description": "A value that is allowed.",
+                          "type": "string"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "sources": {
+      "description": "Links to the sources used during the generation.",
+      "type": "array",
+      "items": {
+        "description": "A link to a source.",
+        "type": "uri"
+      }
+    },
+    "resourceConstraints": {
+      "description": "Links to the legal resource constraints on the source data.",
+      "type": "array",
+      "items": {
+        "description": "The resource constraint specified in the sources metadata",
+        "type": "uri"
+      }
+    }
+  }
+}
